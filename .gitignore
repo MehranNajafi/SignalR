@@ -1,0 +1,26 @@
+# Ignore Visual Studio files and directories
+.vscode/
+.vs/
+SignalRSample/.vs
+SignalRSample/bin/
+SignalRSample/obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.sln.docstates
+
+# Ignore NuGet package directory
+SignalRSample/packages/
+
+# Ignore build output
+[Bb]in/
+[Oo]bj/
+
+# Ignore Visual Studio Code settings
+SignalRSample/.vscode/
+
+# Ignore .NET Core and Visual Studio artifacts
+SignalRSample/project.lock.json
+SignalRSample/project.fragment.lock.json
+SignalRSample/artifacts/
