@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using SignalRSample.Data;
 using SignalRSample.Hubs;
 using SignalRSample.Models;
+using SignalRSample.Models.ViewModel;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace SignalRSample.Controllers
 {
@@ -52,6 +55,30 @@ namespace SignalRSample.Controllers
         public IActionResult BasicChat()
         {
             return View();
+        }
+        [Authorize]
+        public IActionResult Chat()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatVM chatVM = new ChatVM
+            {
+                UserId = currentUserId,
+                MaxRoomAllowed = 4,
+                Rooms = _context.ChatRooms.ToList(),
+            };
+            return View(chatVM);
+        }
+        [Authorize]
+        public IActionResult AdvanceChat()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatVM chatVM = new ChatVM
+            {
+                UserId = currentUserId,
+                MaxRoomAllowed = 4,
+                Rooms = _context.ChatRooms.ToList(),
+            };
+            return View(chatVM);
         }
         [ActionName("Order")]
         public async Task<IActionResult> Order()
