@@ -24,3 +24,5 @@ SignalRSample/.vscode/
 SignalRSample/project.lock.json
 SignalRSample/project.fragment.lock.json
 SignalRSample/artifacts/
+
+/SignalRSample/wwwroot/lib/microsoft/signalr
